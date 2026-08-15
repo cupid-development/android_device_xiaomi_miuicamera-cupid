@@ -1,1 +1,1 @@
-binder_call(hal_camera_default, platform_app)
+binder_call(hal_camera_default, platform_app_36)
