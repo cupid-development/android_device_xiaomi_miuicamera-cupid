@@ -1,4 +1,4 @@
-From 425f95eadf3e5f57de3e20bd59213a6ea8c19d2a Mon Sep 17 00:00:00 2001
+From 79bf1c1031e996a04227d3a60698a549f23d4357 Mon Sep 17 00:00:00 2001
 From: Arian <arian.kulmer@web.de>
 Date: Thu, 9 Jan 2025 23:47:48 +0100
 Subject: [PATCH 4/7] Redo shortcut icon drawables
@@ -366,17 +366,16 @@ zyKM$s$N#%U-=JuK#q#KX<5Um7gu&Lk4E(882Tj=O`S=xtOcjLCIMv8~5CE1_VTNxj
 si*x$|pAe`{zv7br{`7<Y-g$rjyt(UOO5Vvyh=U1Ks7%U$>;M1&0Bt)bKmY&$
 
 diff --git a/res/drawable/shortcat_cosmetic_mirror.xml b/res/drawable/shortcat_cosmetic_mirror.xml
-index af90307a7..6d999f043 100644
+index 38be90f97..6d999f043 100644
 --- a/res/drawable/shortcat_cosmetic_mirror.xml
 +++ b/res/drawable/shortcat_cosmetic_mirror.xml
 @@ -1,6 +1,17 @@
  <?xml version="1.0" encoding="utf-8"?>
--<vector android:height="88.0dip" android:width="88.0dip" android:viewportWidth="88.0" android:viewportHeight="88.0"
+-<vector android:height="88.0dp" android:width="88.0dp" android:viewportWidth="88.0" android:viewportHeight="88.0"
 -  xmlns:android="http://schemas.android.com/apk/res/android">
--    <path android:fillColor="#ff000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.06361997" android:fillType="evenOdd" />
--    <path android:fillColor="#ff000000" android:pathData="M56 39C56 46.1797 50.1797 52 43 52C35.8203 52 30 46.1797 30 39C30 31.8203 35.8203 26 43 26C50.1797 26 56 31.8203 56 39ZM60 39C60 48.3888 52.3888 56 43 56C33.6112 56 26 48.3888 26 39C26 29.6112 33.6112 22 43 22C52.3888 22 60 29.6112 60 39ZM27 60C26.4477 60 26 60.4477 26 61V63C26 63.5523 26.4477 64 27 64H59C59.5523 64 60 63.5523 60 63V61C60 60.4477 59.5523 60 59 60H27Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.06361997" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M56 39C56 46.1797 50.1797 52 43 52C35.8203 52 30 46.1797 30 39C30 31.8203 35.8203 26 43 26C50.1797 26 56 31.8203 56 39ZM60 39C60 48.3888 52.3888 56 43 56C33.6112 56 26 48.3888 26 39C26 29.6112 33.6112 22 43 22C52.3888 22 60 29.6112 60 39ZM27 60C26.4477 60 26 60.4477 26 61V63C26 63.5523 26.4477 64 27 64H59C59.5523 64 60 63.5523 60 63V61C60 60.4477 59.5523 60 59 60H27Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="evenOdd" />
 -</vector>
-\ No newline at end of file
 +<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
 +    <background android:drawable="@android:color/white" />
 +    <foreground>
@@ -394,17 +393,16 @@ index af90307a7..6d999f043 100644
 +    </foreground>
 +</adaptive-icon>
 diff --git a/res/drawable/shortcut_capture_mode.xml b/res/drawable/shortcut_capture_mode.xml
-index eccd7defb..de2383911 100644
+index 10288434e..de2383911 100644
 --- a/res/drawable/shortcut_capture_mode.xml
 +++ b/res/drawable/shortcut_capture_mode.xml
 @@ -1,6 +1,17 @@
  <?xml version="1.0" encoding="utf-8"?>
--<vector android:height="89.0dip" android:width="88.0dip" android:viewportWidth="88.0" android:viewportHeight="89.0"
+-<vector android:height="89.0dp" android:width="88.0dp" android:viewportWidth="88.0" android:viewportHeight="89.0"
 -  xmlns:android="http://schemas.android.com/apk/res/android">
--    <path android:fillColor="#ff000000" android:pathData="M44,44.5m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
--    <path android:fillColor="#ff000000" android:pathData="M52.3147,29.1434C52.7093,29.6722 52.9185,30.3163 52.9101,30.976L52.8011,39.5061L59.7661,44.4318C61.1189,45.3884 61.44,47.2606 60.4833,48.6133C60.1024,49.152 59.5545,49.5501 58.9245,49.7459L52.3972,51.7745L60.9608,60.3388C61.5466,60.9246 61.5466,61.8743 60.9608,62.4601C60.375,63.0459 59.4253,63.0459 58.8395,62.4601L50.2742,53.8955L48.2459,60.4245C47.7541,62.0066 46.0728,62.8905 44.4906,62.3987C43.8606,62.2029 43.3127,61.8048 42.9318,61.2661L38.0061,54.3011L29.476,54.4101C27.8193,54.4313 26.4591,53.1054 26.4375,51.4487C26.4295,50.789 26.6388,50.1449 27.0334,49.6161L32.1354,42.7792L29.3958,34.7003C28.8637,33.1312 29.7044,31.4279 31.2734,30.8958C31.8983,30.6839 32.5755,30.6839 33.2003,30.8958L41.2792,33.6354L48.1161,28.5334C49.444,27.5424 51.3237,27.8156 52.3147,29.1434ZM49.9103,30.9377L41.8094,36.983L32.2369,33.7369L35.483,43.3094L29.4377,51.4103L39.5448,51.2812L45.3811,59.5339L48.3816,49.8816L58.0339,46.8811L49.7812,41.0448L49.9103,30.9377Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
+-    <path android:fillColor="#000000" android:pathData="M44,44.5m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M52.3147,29.1434C52.7093,29.6722 52.9185,30.3163 52.9101,30.976L52.8011,39.5061L59.7661,44.4318C61.1189,45.3884 61.44,47.2606 60.4833,48.6133C60.1024,49.152 59.5545,49.5501 58.9245,49.7459L52.3972,51.7745L60.9608,60.3388C61.5466,60.9246 61.5466,61.8743 60.9608,62.4601C60.375,63.0459 59.4253,63.0459 58.8395,62.4601L50.2742,53.8955L48.2459,60.4245C47.7541,62.0066 46.0728,62.8905 44.4906,62.3987C43.8606,62.2029 43.3127,61.8048 42.9318,61.2661L38.0061,54.3011L29.476,54.4101C27.8193,54.4313 26.4591,53.1054 26.4375,51.4487C26.4295,50.789 26.6388,50.1449 27.0334,49.6161L32.1354,42.7792L29.3958,34.7003C28.8637,33.1312 29.7044,31.4279 31.2734,30.8958C31.8983,30.6839 32.5755,30.6839 33.2003,30.8958L41.2792,33.6354L48.1161,28.5334C49.444,27.5424 51.3237,27.8156 52.3147,29.1434ZM49.9103,30.9377L41.8094,36.983L32.2369,33.7369L35.483,43.3094L29.4377,51.4103L39.5448,51.2812L45.3811,59.5339L48.3816,49.8816L58.0339,46.8811L49.7812,41.0448L49.9103,30.9377Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
 -</vector>
-\ No newline at end of file
 +<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
 +    <background android:drawable="@android:color/white" />
 +    <foreground>
@@ -422,17 +420,16 @@ index eccd7defb..de2383911 100644
 +    </foreground>
 +</adaptive-icon>
 diff --git a/res/drawable/shortcut_document_mode.xml b/res/drawable/shortcut_document_mode.xml
-index 040e92cb8..cf5f89578 100644
+index 8ce44387a..cf5f89578 100644
 --- a/res/drawable/shortcut_document_mode.xml
 +++ b/res/drawable/shortcut_document_mode.xml
 @@ -1,6 +1,17 @@
  <?xml version="1.0" encoding="utf-8"?>
--<vector android:height="88.0dip" android:width="88.0dip" android:viewportWidth="88.0" android:viewportHeight="88.0"
+-<vector android:height="88.0dp" android:width="88.0dp" android:viewportWidth="88.0" android:viewportHeight="88.0"
 -  xmlns:android="http://schemas.android.com/apk/res/android">
--    <path android:fillColor="#ff000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.06361997" android:fillType="evenOdd" />
--    <path android:fillColor="#ff000000" android:pathData="M58,26C60.2091,26 62,27.7909 62,30L62,58C62,60.2091 60.2091,62 58,62L30,62C27.7909,62 26,60.2091 26,58L26,30C26,27.7909 27.7909,26 30,26L58,26ZM57,29L31,29C29.9456,29 29.0818,29.8159 29.0055,30.8507L29,31L29,57C29,58.0544 29.8159,58.9182 30.8507,58.9945L31,59L57,59C58.0544,59 58.9182,58.1841 58.9945,57.1493L59,57L59,31C59,29.8954 58.1046,29 57,29ZM51.5,43C52.0523,43 52.5,43.4477 52.5,44L52.5,45C52.5,45.5523 52.0523,46 51.5,46L36.5,46C35.9477,46 35.5,45.5523 35.5,45L35.5,44C35.5,43.4477 35.9477,43 36.5,43L51.5,43ZM51.5,35C52.0523,35 52.5,35.4477 52.5,36L52.5,37C52.5,37.5523 52.0523,38 51.5,38L36.5,38C35.9477,38 35.5,37.5523 35.5,37L35.5,36C35.5,35.4477 35.9477,35 36.5,35L51.5,35Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
+-    <path android:fillColor="#000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.06361997" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M58,26C60.2091,26 62,27.7909 62,30L62,58C62,60.2091 60.2091,62 58,62L30,62C27.7909,62 26,60.2091 26,58L26,30C26,27.7909 27.7909,26 30,26L58,26ZM57,29L31,29C29.9456,29 29.0818,29.8159 29.0055,30.8507L29,31L29,57C29,58.0544 29.8159,58.9182 30.8507,58.9945L31,59L57,59C58.0544,59 58.9182,58.1841 58.9945,57.1493L59,57L59,31C59,29.8954 58.1046,29 57,29ZM51.5,43C52.0523,43 52.5,43.4477 52.5,44L52.5,45C52.5,45.5523 52.0523,46 51.5,46L36.5,46C35.9477,46 35.5,45.5523 35.5,45L35.5,44C35.5,43.4477 35.9477,43 36.5,43L51.5,43ZM51.5,35C52.0523,35 52.5,35.4477 52.5,36L52.5,37C52.5,37.5523 52.0523,38 51.5,38L36.5,38C35.9477,38 35.5,37.5523 35.5,37L35.5,36C35.5,35.4477 35.9477,35 36.5,35L51.5,35Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
 -</vector>
-\ No newline at end of file
 +<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
 +    <background android:drawable="@android:color/white" />
 +    <foreground>
@@ -450,17 +447,16 @@ index 040e92cb8..cf5f89578 100644
 +    </foreground>
 +</adaptive-icon>
 diff --git a/res/drawable/shortcut_professional_mode.xml b/res/drawable/shortcut_professional_mode.xml
-index e65157e6d..afe3ffa78 100644
+index 846d60bb2..afe3ffa78 100644
 --- a/res/drawable/shortcut_professional_mode.xml
 +++ b/res/drawable/shortcut_professional_mode.xml
 @@ -1,6 +1,17 @@
  <?xml version="1.0" encoding="utf-8"?>
--<vector android:height="89.0dip" android:width="88.0dip" android:viewportWidth="88.0" android:viewportHeight="89.0"
+-<vector android:height="89.0dp" android:width="88.0dp" android:viewportWidth="88.0" android:viewportHeight="89.0"
 -  xmlns:android="http://schemas.android.com/apk/res/android">
--    <path android:fillColor="#ff000000" android:pathData="M44,44.5m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
--    <path android:fillColor="#ff000000" android:pathData="M48.7352,25.5C50.1403,25.5 51.4423,26.2372 52.1652,27.442L53.7087,30.0145C53.8894,30.3157 54.2149,30.5 54.5662,30.5L59,30.5C61.7614,30.5 64,32.7386 64,35.5L64,56.5C64,59.2614 61.7614,61.5 59,61.5L29,61.5C26.2386,61.5 24,59.2614 24,56.5L24,35.5C24,32.7386 26.2386,30.5 29,30.5L33.4338,30.5C33.7851,30.5 34.1106,30.3157 34.2913,30.0145L35.8348,27.442C36.5577,26.2372 37.8597,25.5 39.2648,25.5L48.7352,25.5ZM48.7352,28.5L39.2648,28.5C38.9135,28.5 38.588,28.6843 38.4073,28.9855L36.8638,31.558C36.1409,32.7628 34.8389,33.5 33.4338,33.5L29,33.5C27.8954,33.5 27,34.3954 27,35.5L27,56.5C27,57.6046 27.8954,58.5 29,58.5L59,58.5C60.1046,58.5 61,57.6046 61,56.5L61,35.5C61,34.3954 60.1046,33.5 59,33.5L54.5662,33.5C53.1611,33.5 51.8591,32.7628 51.1362,31.558L49.5927,28.9855C49.412,28.6843 49.0865,28.5 48.7352,28.5ZM44,36C48.6944,36 52.5,39.8056 52.5,44.5C52.5,49.1944 48.6944,53 44,53C39.3056,53 35.5,49.1944 35.5,44.5C35.5,39.8056 39.3056,36 44,36ZM44,39C40.9624,39 38.5,41.4624 38.5,44.5C38.5,47.5376 40.9624,50 44,50C47.0376,50 49.5,47.5376 49.5,44.5C49.5,41.4624 47.0376,39 44,39Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
+-    <path android:fillColor="#000000" android:pathData="M44,44.5m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M48.7352,25.5C50.1403,25.5 51.4423,26.2372 52.1652,27.442L53.7087,30.0145C53.8894,30.3157 54.2149,30.5 54.5662,30.5L59,30.5C61.7614,30.5 64,32.7386 64,35.5L64,56.5C64,59.2614 61.7614,61.5 59,61.5L29,61.5C26.2386,61.5 24,59.2614 24,56.5L24,35.5C24,32.7386 26.2386,30.5 29,30.5L33.4338,30.5C33.7851,30.5 34.1106,30.3157 34.2913,30.0145L35.8348,27.442C36.5577,26.2372 37.8597,25.5 39.2648,25.5L48.7352,25.5ZM48.7352,28.5L39.2648,28.5C38.9135,28.5 38.588,28.6843 38.4073,28.9855L36.8638,31.558C36.1409,32.7628 34.8389,33.5 33.4338,33.5L29,33.5C27.8954,33.5 27,34.3954 27,35.5L27,56.5C27,57.6046 27.8954,58.5 29,58.5L59,58.5C60.1046,58.5 61,57.6046 61,56.5L61,35.5C61,34.3954 60.1046,33.5 59,33.5L54.5662,33.5C53.1611,33.5 51.8591,32.7628 51.1362,31.558L49.5927,28.9855C49.412,28.6843 49.0865,28.5 48.7352,28.5ZM44,36C48.6944,36 52.5,39.8056 52.5,44.5C52.5,49.1944 48.6944,53 44,53C39.3056,53 35.5,49.1944 35.5,44.5C35.5,39.8056 39.3056,36 44,36ZM44,39C40.9624,39 38.5,41.4624 38.5,44.5C38.5,47.5376 40.9624,50 44,50C47.0376,50 49.5,47.5376 49.5,44.5C49.5,41.4624 47.0376,39 44,39Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
 -</vector>
-\ No newline at end of file
 +<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
 +    <background android:drawable="@android:color/white" />
 +    <foreground>
@@ -478,17 +474,16 @@ index e65157e6d..afe3ffa78 100644
 +    </foreground>
 +</adaptive-icon>
 diff --git a/res/drawable/shortcut_video_mode.xml b/res/drawable/shortcut_video_mode.xml
-index a2e677508..c0b9cd5f3 100644
+index 172ac5636..c0b9cd5f3 100644
 --- a/res/drawable/shortcut_video_mode.xml
 +++ b/res/drawable/shortcut_video_mode.xml
 @@ -1,6 +1,17 @@
  <?xml version="1.0" encoding="utf-8"?>
--<vector android:height="88.0dip" android:width="88.0dip" android:viewportWidth="88.0" android:viewportHeight="88.0"
+-<vector android:height="88.0dp" android:width="88.0dp" android:viewportWidth="88.0" android:viewportHeight="88.0"
 -  xmlns:android="http://schemas.android.com/apk/res/android">
--    <path android:fillColor="#ff000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
--    <path android:fillColor="#ff000000" android:pathData="M51,28.5C53.2091,28.5 55,30.2909 55,32.5L55,37.923L60.2924,34.2591C61.6546,33.316 63.5235,33.6558 64.4666,35.0181C64.8139,35.5198 65,36.1155 65,36.7257L65,51.2743C65,52.9311 63.6569,54.2743 62,54.2743C61.3898,54.2743 60.7941,54.0882 60.2924,53.7409L55,50.077L55,55.5C55,57.7091 53.2091,59.5 51,59.5L29,59.5C26.7909,59.5 25,57.7091 25,55.5L25,32.5C25,30.2909 26.7909,28.5 29,28.5L51,28.5ZM51,31.5L29,31.5C28.4477,31.5 28,31.9477 28,32.5L28,55.5C28,56.0523 28.4477,56.5 29,56.5L51,56.5C51.5523,56.5 52,56.0523 52,55.5L52,32.5C52,31.9477 51.5523,31.5 51,31.5ZM62,36.7257L55,41.5719L55,46.4281L62,51.2743L62,36.7257Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
+-    <path android:fillColor="#000000" android:pathData="M44,44m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillAlpha="0.05935861" android:fillType="evenOdd" />
+-    <path android:fillColor="#000000" android:pathData="M51,28.5C53.2091,28.5 55,30.2909 55,32.5L55,37.923L60.2924,34.2591C61.6546,33.316 63.5235,33.6558 64.4666,35.0181C64.8139,35.5198 65,36.1155 65,36.7257L65,51.2743C65,52.9311 63.6569,54.2743 62,54.2743C61.3898,54.2743 60.7941,54.0882 60.2924,53.7409L55,50.077L55,55.5C55,57.7091 53.2091,59.5 51,59.5L29,59.5C26.7909,59.5 25,57.7091 25,55.5L25,32.5C25,30.2909 26.7909,28.5 29,28.5L51,28.5ZM51,31.5L29,31.5C28.4477,31.5 28,31.9477 28,32.5L28,55.5C28,56.0523 28.4477,56.5 29,56.5L51,56.5C51.5523,56.5 52,56.0523 52,55.5L52,32.5C52,31.9477 51.5523,31.5 51,31.5ZM62,36.7257L55,41.5719L55,46.4281L62,51.2743L62,36.7257Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="nonZero" />
 -</vector>
-\ No newline at end of file
 +<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
 +    <background android:drawable="@android:color/white" />
 +    <foreground>

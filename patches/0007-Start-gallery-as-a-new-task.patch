@@ -1,4 +1,4 @@
-From b12abf6ad3f27b63388f676093912413f74a95dc Mon Sep 17 00:00:00 2001
+From 9767ffd8a067360e78f649fa87432777c1afa19b Mon Sep 17 00:00:00 2001
 From: Arian <arian.kulmer@web.de>
 Date: Tue, 15 Oct 2024 01:44:04 +0200
 Subject: [PATCH 7/7] Start gallery as a new task
@@ -10,7 +10,7 @@ Let it create a new task for it.
  1 file changed, 4 insertions(+)
 
 diff --git a/smali/com/android/camera/l3.smali b/smali/com/android/camera/l3.smali
-index a5c3e074d..986da34da 100644
+index 58e4f198d..7e3273147 100644
 --- a/smali/com/android/camera/l3.smali
 +++ b/smali/com/android/camera/l3.smali
 @@ -1055,6 +1055,10 @@
