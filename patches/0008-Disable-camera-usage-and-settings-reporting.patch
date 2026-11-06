@@ -1,0 +1,139 @@
+From 94bef635890024343d5f4a4c63a248ba962e55cf Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Fri, 6 Nov 2026 22:31:16 +0100
+Subject: [PATCH 08/11] Disable camera usage and settings reporting
+
+---
+ AndroidManifest.xml                           |  2 +-
+ res/values/bools.xml                          |  4 +-
+ .../statistic/SettingUploadJobService.smali   | 59 -------------------
+ smali_classes2/s7/d.smali                     |  8 +--
+ 4 files changed, 4 insertions(+), 69 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index bab16bf15..af96056c8 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -99,7 +99,7 @@
+         <meta-data android:name="miui.dynamic_dpi_relaunch" android:value="true"/>
+         <meta-data android:name="miui.screenOrientation" android:value="1.sensor,2.portrait,3.fullSensor"/>
+         <service android:exported="false" android:name="com.android.camera.snap.SnapService"/>
+-        <service android:name="com.android.camera.statistic.SettingUploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
++        <service android:enabled="false" android:name="com.android.camera.statistic.SettingUploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+         <receiver android:exported="true" android:name="com.android.camera.snap.SnapKeyReceiver" android:permission="com.xiaomi.camera.AUX_CONTROL">
+             <intent-filter>
+                 <action android:name="miui.intent.action.CAMERA_KEY_BUTTON"/>
+diff --git a/res/values/bools.xml b/res/values/bools.xml
+index cbe1b46d9..6de8c330d 100644
+--- a/res/values/bools.xml
++++ b/res/values/bools.xml
+@@ -65,8 +65,8 @@
+     <bool name="pref_camera_snap_default">false</bool>
+     <bool name="pref_camera_sound">true</bool>
+     <bool name="pref_camera_sr_enable_default">true</bool>
+-    <bool name="pref_camera_statistic_counter_event_default">true</bool>
+-    <bool name="pref_camera_statistic_default">true</bool>
++    <bool name="pref_camera_statistic_counter_event_default">false</bool>
++    <bool name="pref_camera_statistic_default">false</bool>
+     <bool name="pref_camera_suspend_shutter_button_default">true</bool>
+     <bool name="pref_camera_tele_fallback_default">true</bool>
+     <bool name="pref_camera_track_eye_preferred_default">true</bool>
+diff --git a/smali_classes2/com/android/camera/statistic/SettingUploadJobService.smali b/smali_classes2/com/android/camera/statistic/SettingUploadJobService.smali
+index d3e09a1b0..04666a56b 100644
+--- a/smali_classes2/com/android/camera/statistic/SettingUploadJobService.smali
++++ b/smali_classes2/com/android/camera/statistic/SettingUploadJobService.smali
+@@ -129,65 +129,6 @@
+ 
+     invoke-virtual {v0, v2}, Landroid/app/job/JobScheduler;->cancel(I)V
+ 
+-    new-instance v3, Landroid/content/ComponentName;
+-
+-    const-class v4, Lcom/android/camera/statistic/SettingUploadJobService;
+-
+-    invoke-direct {v3, p0, v4}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+-
+-    new-instance p0, Landroid/app/job/JobInfo$Builder;
+-
+-    invoke-direct {p0, v2, v3}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
+-
+-    const/4 v3, 0x2
+-
+-    invoke-virtual {p0, v3}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
+-
+-    move-result-object p0
+-
+-    const-wide/32 v3, 0x5265c00
+-
+-    invoke-virtual {p0, v3, v4}, Landroid/app/job/JobInfo$Builder;->setMinimumLatency(J)Landroid/app/job/JobInfo$Builder;
+-
+-    move-result-object p0
+-
+-    const/4 v3, 0x1
+-
+-    invoke-virtual {p0, v3}, Landroid/app/job/JobInfo$Builder;->setPersisted(Z)Landroid/app/job/JobInfo$Builder;
+-
+-    move-result-object p0
+-
+-    invoke-virtual {p0}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
+-
+-    move-result-object p0
+-
+-    invoke-virtual {v0, p0}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
+-
+-    move-result p0
+-
+-    if-gtz p0, :cond_1
+-
+-    sget-object p0, Lcom/android/camera/statistic/SettingUploadJobService;->a:Ljava/lang/String;
+-
+-    new-array v0, v3, [Ljava/lang/Object;
+-
+-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+-
+-    move-result-object v2
+-
+-    aput-object v2, v0, v1
+-
+-    const-string v2, "scheduleJob failed: job id is %s"
+-
+-    invoke-static {v2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    new-array v1, v1, [Ljava/lang/Object;
+-
+-    invoke-static {p0, v0, v1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+-
+-    :cond_1
+     return-void
+ .end method
+ 
+diff --git a/smali_classes2/s7/d.smali b/smali_classes2/s7/d.smali
+index 632f377d6..3f7f432b4 100644
+--- a/smali_classes2/s7/d.smali
++++ b/smali_classes2/s7/d.smali
+@@ -20,7 +20,7 @@
+ 
+ .field public static c:Z = false
+ 
+-.field public static d:Z = true
++.field public static d:Z = false
+ 
+ .field public static e:Z
+ 
+@@ -578,12 +578,6 @@
+ 
+     move-result v2
+ 
+-    const-string v3, "camera.camera_statistic"
+-
+-    invoke-static {v3, v2}, Lmiuix/core/util/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+-
+-    move-result v2
+-
+     sput-boolean v2, Ls7/d;->d:Z
+ 
+     if-eqz v2, :cond_1
+-- 
+2.47.3
+

@@ -1,0 +1,25 @@
+From 735b09116a0d3e9bcbc891b589b5d6b3fae24cf7 Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Fri, 6 Nov 2026 22:32:11 +0100
+Subject: [PATCH 11/11] Disable Xiaomi AI SDK tracking by default
+
+---
+ smali_classes4/com/xiaomi/ai/core/a.smali | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/smali_classes4/com/xiaomi/ai/core/a.smali b/smali_classes4/com/xiaomi/ai/core/a.smali
+index 2a22a46cb..0de95b759 100644
+--- a/smali_classes4/com/xiaomi/ai/core/a.smali
++++ b/smali_classes4/com/xiaomi/ai/core/a.smali
+@@ -363,7 +363,7 @@
+ 
+     const-string v0, "track.enable"
+ 
+-    invoke-virtual {p0, v0, v3}, Lcom/xiaomi/ai/core/a;->o(Ljava/lang/String;Z)V
++    invoke-virtual {p0, v0, v1}, Lcom/xiaomi/ai/core/a;->o(Ljava/lang/String;Z)V
+ 
+     const-string v0, "track.max_track_data_size"
+ 
+-- 
+2.47.3
+

@@ -1,0 +1,26 @@
+From bbe55787e19b896b7f994b8d2a7e27cd7f9cb7d6 Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Fri, 6 Nov 2026 22:32:11 +0100
+Subject: [PATCH 09/11] Disable automatic Firebase initialization
+
+Camera features do not use FirebaseApp; ML Kit initializes independently.
+---
+ AndroidManifest.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index af96056c8..a8d70d844 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -297,7 +297,7 @@
+             <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+         </service>
+         <service android:enabled="true" android:exported="false" android:name="com.google.firebase.sessions.SessionLifecycleService"/>
+-        <provider android:authorities="com.android.camera.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
++        <provider android:authorities="com.android.camera.firebaseinitprovider" android:directBootAware="true" android:enabled="false" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+         <meta-data android:name="miuiWidgetVersion" android:value="5"/>
+         <receiver android:enabled="false" android:exported="true" android:label="@string/widget_camera_label" android:name="com.android.camera2.compat.theme.custom.cv.widget.CameraFiltersWidgetProvider" android:process=":widgetProvider">
+             <intent-filter>
+-- 
+2.47.3
+
