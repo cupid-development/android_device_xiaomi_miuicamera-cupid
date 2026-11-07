@@ -1,12 +1,13 @@
 not_recovery(`
 hal_client_domain(platform_app_36, vendor_hal_camerapostproc_xiaomi)
+hal_client_domain(platform_app_36, vendor_hal_qspmhal)
 
 binder_use(platform_app_36)
 binder_call(platform_app_36, hal_camera_default)
 binder_call(platform_app_36, vendor_hal_camerapostproc_xiaomi)
 allow platform_app_36 vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 
-allow platform_app_36 adsprpcd_file:dir { open read search };
+allow platform_app_36 adsprpcd_file:dir { getattr open read search };
 allow platform_app_36 vendor_qdsp_device:chr_file { ioctl read };
 
 allow platform_app_36 vendor_camera_data_file:dir { append map r_dir_perms write };
